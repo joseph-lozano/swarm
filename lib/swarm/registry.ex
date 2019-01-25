@@ -46,6 +46,9 @@ defmodule Swarm.Registry do
       {:error, {:already_registered, pid}} ->
         {:ok, pid}
 
+      {:error, {:invalid_return, {:error, {:already_started, pid}}}} ->
+        {:ok, pid}
+
       {:error, _} = err ->
         err
     end
